@@ -3,14 +3,18 @@
 <h1>Notes</h1>
 
 <div class="row">
+    {{#list notes}}
+        <p>No notes yet, add one!</p>
+    {{/list}}
+
     {{#each notes}}
-    <div class="col-xm-3">
-        <h2>{{this.title}}</h2>
-        <ul>
-            <sub>{{this.date}}</sub>
-            <sub>{{this.time}}</sub>
-        </ul>
-        <p>{{this.body}}</p>
-    </div>
+        <div class="col-xm-3">
+            <h2>{{this.title}}</h2>
+            <ul>
+                <sub>{{this.date}}</sub>
+                <sub>{{this.time}}</sub>
+            </ul>
+            <p>{{this.body}}</p>
+        </div>
     {{/each}}
 </div>

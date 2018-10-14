@@ -1,0 +1,45 @@
+<!--views/partials/notes-form.handlebars-->
+
+<form method="post" action="/notes">
+    <fieldset>
+        <h1>Create Note</h1>
+        <!--Title-->
+        <div class="form-group">
+            <label for="notes-title">Title</label>
+            <input class="form-control"
+            id="notes-title"
+            type="text"
+            name="title"
+            placeholder="Title">
+        </div>
+        <!--Date -->
+        <div class="form-group">
+            <label for="notes-title">Date of creation</label>
+            <input class="form-control"
+            id="notes-date"
+            type="number"
+            name="date"
+            placeholder="Date D/M/Y">
+        </div>
+        <!--Time -->
+        <div class="form-group">
+            <label for="notes-title">Time of creation</label>
+            <input class="form-control"
+            id="notes-time"
+            type="number"
+            name="time"
+            placeholder="Time 00:00">
+        </div>
+        <!--Body-->
+        <div>
+            <label for="comment-content">Body</label><br>
+            <textarea class="form-control"
+                id="notes-body"
+                name="content"
+                rows="10"
+                placeholder="Your note..."/></textarea>
+        </div>
+    </fieldset>
+</form>
+
+
