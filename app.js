@@ -28,5 +28,45 @@ app.get("/", (req, res) => {
         })
 })
 
+// Create
+app.post("/notes", (req, res) => {
+    Notes.create(req.body)
+        .then((notes) => {
+            console.log(notes)
+            res.redirect(`/notes/${notes._id}`) // Redirect to reviews/:id
+    }).catch((err) => {
+      console.log(err.message)
+    })
+  })
 
 
+// Read
+app.get("/notes/:id", (req, res) => {
+    Notes.findById(req.params.id)
+        .then((notes) => {
+            res.render("notes-show", { notes: notes }) //res.render is similar to a return statement
+        }).catch((err) => {
+      console.log(err.message);
+    })
+  })
+
+// Update 
+app.put("/notes/:id", (req, res) => {
+    Notes.findByIdAndUpdate(req.params.id, req.body)
+        .then((notes) => {
+            res.redirect(`/notes/${notes._id}`)
+        }).catch(err => {
+            console.log(err.message)
+        })
+})
+
+//Delete
+app.delete("/notes/:id", function(req,res) {
+    console.log("Delete note")
+    Review.findByIdAndRemove(req.params.id)
+        .then((notes) => {
+            res.redirect(`/notes/${notes.movieId}`);
+        }).catch((err) => {
+        console.log(err.message);
+    })
+})
