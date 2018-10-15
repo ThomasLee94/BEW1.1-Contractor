@@ -7,8 +7,8 @@ var handlebars = require("express-handlebars");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose")
 
-var app = express();
 
+var app = express();
 // * Initialise body-parser
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -33,6 +33,10 @@ app.get("/", (req, res) => {
         })
 })
 
+// New-note route
+app.get("/notes/new", (req, res) => {
+    res.render('notes-new', {});
+})
 // Create
 app.post("/notes", (req, res) => {
     Notes.create(req.body)

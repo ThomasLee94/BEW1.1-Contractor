@@ -3,7 +3,7 @@
 // Initialise mongoose
 var mongoose = require("mongoose");
 
-module.exports = smongoose.model("Notes", {
+module.exports = mongoose.model("Notes", {
     title: String,
     date: Number,
     time: Number,
