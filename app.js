@@ -6,11 +6,10 @@ var express = require("express");
 var handlebars = require("express-handlebars");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose")
+var methodOverride = require("method-override")
 
 
 var app = express();
-// * Initialise body-parser
-app.use(bodyParser.urlencoded({extended: true}));
 
 // * Initialise mongoose
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Contractor', {useNewUrlParser: true});
@@ -18,6 +17,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Contractor', {u
 app.engine("handlebars", handlebars({defaultLayout:"main"}));
 app.set("view engine", "handlebars");
 
+// * Initialise body-parser
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.json());
 // Models
 var Notes = require("./models/notes")
 
@@ -43,6 +45,7 @@ app.post("/notes", (req, res) => {
     Notes.create(req.body)
         .then((notes) => {
             console.log(notes)
+            console.log(req.body)
             res.redirect(`/notes/${notes._id}`) // Redirect to reviews/:id
     }).catch((err) => {
       console.log(err.message)
@@ -53,13 +56,13 @@ app.post("/notes", (req, res) => {
 // Read
 app.get("/notes/:id", (req, res) => {
     Notes.findById(req.params.id)
-        .then((notes) => {
-            res.render("notes-show", { notes: notes }) //res.render is similar to a return statement
+        .then((note) => {
+            res.render("notes-show", { note: note }) //res.render is similar to a return statement
         }).catch((err) => {
       console.log(err.message);
     })
   })
-  
+
 app.get("/notes/:id/edit", (req, res) => {
     Notes.findById(req.params.id)
         .then((note) => {
