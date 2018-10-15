@@ -1,20 +1,25 @@
 {{!-- notes-index.handlebars --}}
 
-<h1>Notes</h1>
+<div class="container">
+    <div class="row">
+        <h1>Notes</h1>
+        {{#unless notes}}
+            <p>No notes yet, add one!</p>
+        {{/unless}}
 
-<div class="row">
-    {{#list notes}}
-        <p>No notes yet, add one!</p>
-    {{/list}}
-
-    {{#each notes}}
-        <div class="col-xm-3">
-            <h2>{{this.title}}</h2>
-            <ul>
-                <sub>{{this.date}}</sub>
-                <sub>{{this.time}}</sub>
-            </ul>
-            <p>{{this.body}}</p>
+        {{#each notes}}
+            <div class="col-xm-3">
+                <h2>{{this.title}}</h2>
+                <ul>
+                    <sub>{{this.date}}</sub>
+                    <sub>{{this.time}}</sub>
+                </ul>
+                <p>{{this.body}}</p>
+            </div>
+        {{/each}}
+        <div class="row">
+            <button class="btn btn-primary" type="submit">New Note</button>
         </div>
-    {{/each}}
+    </div>
+    
 </div>

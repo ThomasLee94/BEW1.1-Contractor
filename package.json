@@ -1,0 +1,27 @@
+{
+  "name": "bew1.1-contractor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^5.3.3",
+    "nodemon": "^1.18.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomasLee94/BEW1.1-Contractor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThomasLee94/BEW1.1-Contractor/issues"
+  },
+  "homepage": "https://github.com/ThomasLee94/BEW1.1-Contractor#readme"
+}

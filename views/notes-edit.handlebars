@@ -1,0 +1,21 @@
+<!-- views/notes-edit.handlebrs-->
+
+<form method="POST" actions="/notes/{{notes.id}}?_method=PUT">
+    <fieldset>
+        <legend>Edit {{notes.title}}</legend>
+        <!--Body-->
+        <p>
+            <label for="notes-body">Body</label>
+            <textarea id="review-description" name="description" rows="10"/>{{notes.body}}</textarea>
+        </p>
+        <!--Button-->
+        <p>
+            <button type="submit">Update notes</button>
+        </p>
+        <p>
+            <button type="reset">Cancel</button>
+        </p>
+        <input type="hidden" value="{{notes.id}}" name="notesId">
+
+    </fieldset>
+</form>
