@@ -37,6 +37,7 @@ app.get("/", (req, res) => {
 app.get("/notes/new", (req, res) => {
     res.render('notes-new', {});
 })
+
 // Create
 app.post("/notes", (req, res) => {
     Notes.create(req.body)
@@ -58,7 +59,13 @@ app.get("/notes/:id", (req, res) => {
       console.log(err.message);
     })
   })
-
+  
+app.get("/notes/:id/edit", (req, res) => {
+    Notes.findById(req.params.id)
+        .then((note) => {
+            res.render("notes-edit", {note: note})
+        })
+})
 // Update 
 app.put("/notes/:id", (req, res) => {
     Notes.findByIdAndUpdate(req.params.id, req.body)

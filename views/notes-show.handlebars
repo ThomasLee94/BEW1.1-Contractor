@@ -1,0 +1,16 @@
+<!-- views/notes-show.handlebars -->
+
+<a href="/">Back to Home</a>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <h1>{{notes.title}}</h1>
+        <p>Date: {{notes.date}}</p>
+        <p>Time: {{notes.time}}</p>
+        <p><a href="/notes/{{notes._id}}/edit">Edit</a></p>
+        <p><form method="POST" action="/notes/{{notes._id}}?_method=DELETE">
+          <button class="btn btn-primary" type="submit">Delete</button>
+        </form></p>
+        
+    </div>
+</div>
+
